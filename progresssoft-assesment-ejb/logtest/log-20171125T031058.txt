@@ -1,0 +1,76 @@
+2017-11-25 03:10:58.691 INFO  o.h.j.i.u.LogHelper:[main] 31 - HHH000204: Processing PersistenceUnitInfo [
+	name: progressoft-assesment-mysql-test
+	...]
+2017-11-25 03:10:58.770 INFO  o.h.Version:[main] 37 - HHH000412: Hibernate Core {5.1.4.Final}
+2017-11-25 03:10:58.774 INFO  o.h.c.Environment:[main] 213 - HHH000206: hibernate.properties not found
+2017-11-25 03:10:58.775 INFO  o.h.c.Environment:[main] 317 - HHH000021: Bytecode provider name : javassist
+2017-11-25 03:10:58.818 INFO  o.h.a.c.Version:[main] 66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-11-25 03:10:58.930 INFO  o.h.c.i.C3P0ConnectionProvider:[main] 117 - HHH010002: C3P0 using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/progresssoft?rewriteBatchedStatements=true&
+2017-11-25 03:10:58.932 INFO  o.h.c.i.C3P0ConnectionProvider:[main] 118 - HHH10001001: Connection properties: {user=root, password=****}
+2017-11-25 03:10:58.932 INFO  o.h.c.i.C3P0ConnectionProvider:[main] 121 - HHH10001003: Autocommit mode: false
+2017-11-25 03:10:59.055 INFO  o.h.c.i.C3P0ConnectionProvider:[main] 201 - HHH10001007: JDBC isolation level: <unknown>
+2017-11-25 03:10:59.340 INFO  o.h.d.Dialect:[main] 156 - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2017-11-25 03:10:59.383 INFO  o.h.e.j.e.i.LobCreatorBuilderImpl:[main] 124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2017-11-25 03:10:59.839 INFO  o.h.h.i.QueryTranslatorFactoryInitiator:[main] 47 - HHH000397: Using ASTQueryTranslatorFactory
+2017-11-25 03:11:00.638 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 42 -  # Tasks - 51
+2017-11-25 03:11:00.660 ERROR c.p.d.c.d.s.DealMultiRowImpl:[pool-1-thread-1] 79 - ERROR: Field not valid. expect [Date Format (YYYY/MM/dd HH:mm:ss)] instead [2017/11/22x19:59:45] in line [1]
+2017-11-25 03:11:00.669 ERROR c.p.d.c.d.s.DealMultiRowImpl:[pool-1-thread-1] 79 - ERROR: Field not valid. expect [ISO Code] instead [2LL] in line [4]
+2017-11-25 03:11:00.676 ERROR c.p.d.c.d.s.DealMultiRowImpl:[pool-1-thread-1] 79 - ERROR: Field not valid. expect [Date Format (YYYY/MM/dd HH:mm:ss)] instead [2017/11/22x19:59:45] in line [6]
+2017-11-25 03:11:10.392 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@71eca8; And Task done is true
+2017-11-25 03:11:10.393 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@16834e8; And Task done is true
+2017-11-25 03:11:10.393 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@696d17; And Task done is true
+2017-11-25 03:11:10.394 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@17918cf; And Task done is true
+2017-11-25 03:11:10.394 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@14bc3eb; And Task done is true
+2017-11-25 03:11:10.395 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@12b97b6; And Task done is true
+2017-11-25 03:11:10.395 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@f564b1; And Task done is true
+2017-11-25 03:11:10.396 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@a5df88; And Task done is true
+2017-11-25 03:11:10.396 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@1f65c1a; And Task done is true
+2017-11-25 03:11:10.397 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@118c26e; And Task done is true
+2017-11-25 03:11:10.397 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@84ed5a; And Task done is true
+2017-11-25 03:11:10.398 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@fac898; And Task done is true
+2017-11-25 03:11:10.398 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@87a7f9; And Task done is true
+2017-11-25 03:11:10.399 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@24fade; And Task done is true
+2017-11-25 03:11:10.399 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@1d204e4; And Task done is true
+2017-11-25 03:11:10.400 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@13f543e; And Task done is true
+2017-11-25 03:11:10.400 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@b3bf65; And Task done is true
+2017-11-25 03:11:10.400 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@da8666; And Task done is true
+2017-11-25 03:11:10.401 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@adca5e; And Task done is true
+2017-11-25 03:11:10.401 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@1c1224b; And Task done is true
+2017-11-25 03:11:10.401 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@b28cad; And Task done is true
+2017-11-25 03:11:10.402 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@31d0fc; And Task done is true
+2017-11-25 03:11:10.402 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@8f88e9; And Task done is true
+2017-11-25 03:11:10.403 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@1657d63; And Task done is true
+2017-11-25 03:11:10.403 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@af260; And Task done is true
+2017-11-25 03:11:10.403 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@ae88f4; And Task done is true
+2017-11-25 03:11:10.404 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@a1880b; And Task done is true
+2017-11-25 03:11:10.404 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@eaa946; And Task done is true
+2017-11-25 03:11:10.404 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@f3b57; And Task done is true
+2017-11-25 03:11:10.405 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@dc2b; And Task done is true
+2017-11-25 03:11:10.405 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@76c9a0; And Task done is true
+2017-11-25 03:11:10.406 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@af4f9e; And Task done is true
+2017-11-25 03:11:10.406 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@1943b8e; And Task done is true
+2017-11-25 03:11:10.406 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@d217a1; And Task done is true
+2017-11-25 03:11:10.407 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@10d630a; And Task done is true
+2017-11-25 03:11:10.407 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@1e15854; And Task done is true
+2017-11-25 03:11:10.408 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@16df4c9; And Task done is true
+2017-11-25 03:11:10.408 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@1e1d8a7; And Task done is true
+2017-11-25 03:11:10.408 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@56e2dc; And Task done is true
+2017-11-25 03:11:10.409 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@4806d3; And Task done is true
+2017-11-25 03:11:10.409 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@b81f68; And Task done is true
+2017-11-25 03:11:10.409 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@160a24; And Task done is true
+2017-11-25 03:11:10.410 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@f3da25; And Task done is true
+2017-11-25 03:11:10.410 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@176f026; And Task done is true
+2017-11-25 03:11:10.410 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@1905090; And Task done is true
+2017-11-25 03:11:10.411 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@1995a3c; And Task done is true
+2017-11-25 03:11:10.411 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@f3450b; And Task done is true
+2017-11-25 03:11:10.411 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@139f991; And Task done is true
+2017-11-25 03:11:10.412 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@12fa55f; And Task done is true
+2017-11-25 03:11:10.412 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@1122db7; And Task done is true
+2017-11-25 03:11:10.412 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 58 - Future result is -  - com.progresssoft.deal.entity.dto.DataFileOutDTO@776dd4; And Task done is true
+2017-11-25 03:11:10.413 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 43 - Process -> Lines Read -> 100290
+2017-11-25 03:11:10.414 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 44 - Process -> Error Lines Read -> 3
+2017-11-25 03:11:10.414 INFO  c.p.d.b.s.r.ReadFileConcurrency:[main] 52 - Thread -> Total elapsed time: 9902 ms
+2017-11-25 03:11:10.943 INFO  c.p.d.b.s.DealServiceBean:[main] 121 - Thread -> Total elapsed time: 10574 ms
+2017-11-25 03:11:10.944 INFO  c.p.d.b.s.DealServiceTest:[main] 59 - Count (Lines) | 100290
+Count (Error) | 3
+Time (ms)     | 10574ISO Source Tx | ISO Target Tx | 
