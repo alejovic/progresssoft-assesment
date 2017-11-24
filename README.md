@@ -2,7 +2,7 @@
 
 Hi there,
 
-This is a small development about how insert massive data in a Database (MySQL) using Parallelism in Java with "Executors".
+This is a small development about how insert massive data in a Database (MySQL) using diferent strategies (Hibernate/JDBC, NativeQuery, Multirow). However the best choice was parallelism with "Executors" and JPA.
 
 Technical Specs :
 
@@ -21,5 +21,23 @@ Deliverables:
 - Maven or Gradle project is required for full source code.
 - Proper error/exception handling.
 - Proper Logging.
+
+Frameworks, Api's, Libraries : Junit, Mockito, Hibernate
+
+Some Helpers Source Code in order to develop this assesment:
+
+How to setup a JDBC connection in Glassfish
+https://computingat40s.wordpress.com/how-to-setup-a-jdbc-connection-in-glassfish/
+
+The best way to do batch processing with JPA and Hibernate
+https://vladmihalcea.com/2017/04/25/the-best-way-to-do-batch-processing-with-jpa-and-hibernate/
+
+Interface ExecutorService
+https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ExecutorService.html
+
+https://javaee.github.io/glassfish/download
+
+Hibernate 5 + Glassfish 4.1.1: java.lang.NoSuchMethodError: org.jboss.logging.Logger.debugf(Ljava/lang/String;I)V
+https://stackoverflow.com/questions/34813782/hibernate-5-glassfish-4-1-1-java-lang-nosuchmethoderror-org-jboss-logging-lo
 
 Alejandro Victoria.
