@@ -1,4 +1,4 @@
-package com.progresssoft.deal.control.dao.strategy;
+package com.progresssoft.deal.control.persistence;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -6,13 +6,11 @@ import java.text.ParseException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TemporalType;
 
 import com.progresssoft.deal.control.validator.FileDealValidatorException;
 import com.progresssoft.deal.control.validator.IFileDealValidator;
-import com.progresssoft.deal.entity.dto.DataFileInDTO;
 import com.progresssoft.deal.entity.dto.DataFileOutDTO;
 import com.progresssoft.deal.entity.dto.DealDTO;
 import com.progresssoft.deal.entity.model.PsDealData;
@@ -20,8 +18,9 @@ import com.progresssoft.deal.entity.model.PsFile;
 
 public class DealNativeQueryImpl extends BaseDealPersistence {
 
-	public DealNativeQueryImpl(EntityManagerFactory emf, DataFileInDTO dataFileDTO, List<String> lines) {
-		super(emf, dataFileDTO, lines);
+	private static final long serialVersionUID = 1L;
+
+	public DealNativeQueryImpl() {
 	}
 
 	public DataFileOutDTO execute() {
@@ -38,7 +37,7 @@ public class DealNativeQueryImpl extends BaseDealPersistence {
 			int entityCount = lines.size();
 			int batchSize = 1000;
 
-			em = getEmf().createEntityManager();
+			em = createEntityManager();
 			transaction = em.getTransaction();
 
 			transaction.begin();
@@ -56,7 +55,7 @@ public class DealNativeQueryImpl extends BaseDealPersistence {
 				if (index > 0 && index % batchSize == 0) {
 					em.flush();
 					em.clear();
-					
+
 					transaction.commit();
 					transaction.begin();
 				}
@@ -83,7 +82,7 @@ public class DealNativeQueryImpl extends BaseDealPersistence {
 						continue;
 					}
 
-					PsFile psFile = new PsFile(); 
+					PsFile psFile = new PsFile();
 					psFile.setId(dealDTO.getIdFile());
 
 					final PsDealData psDealData = new PsDealData();
@@ -106,16 +105,12 @@ public class DealNativeQueryImpl extends BaseDealPersistence {
 					psDealData.setPsFile(psFile);
 
 					int i = 1;
-					em.createNativeQuery(sql.toString())
-							.setParameter(i++, dealDTO.getLine())	
-							.setParameter(i++, psDealData.getPsFile().getId())
-							.setParameter(i++, psDealData.getDealId())
-							.setParameter(i++, psDealData.getIsoSource())
-							.setParameter(i++, psDealData.getIsoTarget())
+					em.createNativeQuery(sql.toString()).setParameter(i++, dealDTO.getLine())
+							.setParameter(i++, psDealData.getPsFile().getId()).setParameter(i++, psDealData.getDealId())
+							.setParameter(i++, psDealData.getIsoSource()).setParameter(i++, psDealData.getIsoTarget())
 							.setParameter(i++, psDealData.getDate(), TemporalType.TIMESTAMP)
-							.setParameter(i++, psDealData.getAmount())
-							.executeUpdate();
-					
+							.setParameter(i++, psDealData.getAmount()).executeUpdate();
+
 				} catch (Exception e) {
 					LOG.error(e.getMessage(), e);
 				}
@@ -128,7 +123,7 @@ public class DealNativeQueryImpl extends BaseDealPersistence {
 					transaction.rollback();
 				}
 			}
-			
+
 			return dataFileOutDTO;
 
 		} finally {

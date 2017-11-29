@@ -15,6 +15,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
@@ -22,8 +23,6 @@ import javax.persistence.PersistenceUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.progresssoft.deal.boundary.service.reader.BaseReadFile;
-import com.progresssoft.deal.boundary.service.reader.ReadFileConcurrency;
 import com.progresssoft.deal.control.dao.BaseEntityDAO;
 import com.progresssoft.deal.control.dao.IEntityDao;
 import com.progresssoft.deal.control.dao.IPsDealTx;
@@ -43,16 +42,21 @@ import com.progresssoft.deal.entity.model.PsFile;
 @Stateless(name = "DealServiceBean", mappedName = "ProgressSoft-EJB-DealServiceBean")
 public class DealServiceBean implements DealService {
 
-	@PersistenceUnit
+	@PersistenceUnit(unitName = "progressoft-assesment-mysql-non-jta")
 	EntityManagerFactory emf;
+
+	@EJB(beanName = "ExecutorServiceBean")
+	TaskServiceBean taskServiceBean;
 
 	private Logger LOG = LoggerFactory.getLogger(this.getClass());
 
 	public DealServiceBean() {
 	}
 
-	public DealServiceBean(EntityManagerFactory emf) {
+	// stub - test
+	public DealServiceBean(EntityManagerFactory emf, TaskServiceBean taskServiceBean) {
 		this.emf = emf;
+		this.taskServiceBean = taskServiceBean;
 	}
 
 	@Override
@@ -100,26 +104,20 @@ public class DealServiceBean implements DealService {
 
 	}
 
-	public DataFileOutDTO readFile(DataFileInDTO dataFileDTO) throws DealServiceException {
+	public DataFileOutDTO readFile(DataFileInDTO dataFileInDTO) throws DealServiceException {
 		long startTime = System.nanoTime();
 
 		DataFileOutDTO dataFileOutDTO = null;
-		final FileDTO fileDTO = dataFileDTO.getFileDTO();
+		final FileDTO fileDTO = dataFileInDTO.getFileDTO();
 
 		saveFileTemporary(fileDTO);
 
 		savePsFile(fileDTO);
 
-		try {
-			BaseReadFile readFile = new ReadFileConcurrency(emf);
-			dataFileOutDTO = readFile.executor(dataFileDTO);
-
-		} catch (Exception e) {
-			LOG.error(e.getMessage(), e);
-		}
+		dataFileOutDTO = taskServiceBean.executor(dataFileInDTO);
 
 		updatePsFile(dataFileOutDTO);
-		
+
 		long endTime = System.nanoTime();
 		long elapsedTimeInMillis = TimeUnit.MILLISECONDS.convert((endTime - startTime), TimeUnit.NANOSECONDS);
 		LOG.info("Thread -> Total elapsed time: " + elapsedTimeInMillis + " ms");

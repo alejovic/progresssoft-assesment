@@ -8,7 +8,7 @@ import com.progresssoft.deal.entity.dto.DataFileOutDTO;
 @Local
 public interface DealFacade {
 
-	public void loadDealValidator(DataFileInDTO dataFileDTO) throws BusinessException;
+	public void loadDealValidator(DataFileInDTO dataFileInDTO) throws BusinessException;
 
-	public DataFileOutDTO processDataFileDeal(DataFileInDTO dataFileDTO) throws BusinessException;
+	public DataFileOutDTO processDataFileDeal(DataFileInDTO dataFileInDTO) throws BusinessException;
 }

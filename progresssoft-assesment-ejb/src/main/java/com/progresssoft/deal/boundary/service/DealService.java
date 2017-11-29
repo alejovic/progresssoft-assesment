@@ -13,9 +13,9 @@ public interface DealService {
 
 	public List<IFileDealValidator> getDealValidatorsAvailable() throws DealServiceException;
 	
-	public DataFileOutDTO readFile(DataFileInDTO dataFileDTO) throws DealServiceException;
+	public DataFileOutDTO readFile(DataFileInDTO dataFileInDTO) throws DealServiceException;
 	
-	public void processErrorDeal(DataFileOutDTO dataFileDTO) throws DealServiceException;
+	public void processErrorDeal(DataFileOutDTO dataFileOutDTO) throws DealServiceException;
 	
 	public void processDealTx(DataFileOutDTO dataFileOutDTO) throws DealServiceException;
 

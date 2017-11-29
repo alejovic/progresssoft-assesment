@@ -7,6 +7,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.progresssoft.deal.control.reader.ReadNIOFileImpl;
 import com.progresssoft.deal.control.validator.IFileDealValidator;
 import com.progresssoft.deal.entity.dto.DataFileInDTO;
 import com.progresssoft.deal.entity.dto.DataFileOutDTO;
@@ -21,6 +22,14 @@ public class DealServiceTest extends BaseTest {
 		super.setUp();
 		service = new DealServiceBean();
 		service.emf = getEmfMySQL();
+		
+		TaskServiceBean taskServiceBean = new TaskServiceBean();
+		taskServiceBean.emf = getEmfMySQL();
+		//taskServiceBean.executorService = mock(ManagedExecutorService.class);
+		taskServiceBean.executorService = java.util.concurrent.Executors.newFixedThreadPool(10);
+		taskServiceBean.reader = new ReadNIOFileImpl();
+		
+		service.taskServiceBean = taskServiceBean;
 	}
 
 	@Test

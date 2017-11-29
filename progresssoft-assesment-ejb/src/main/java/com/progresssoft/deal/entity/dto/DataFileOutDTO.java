@@ -136,4 +136,11 @@ public class DataFileOutDTO implements Serializable, Cloneable {
 		return strBuilderDetail.toString();
 	}
 
+	@Override
+	public String toString() {
+		return "DataFileOutDTO [id=" + id + ", errorLines=" + errorLines + ", isoSourceTx=" + isoSourceTx
+				+ ", isoTargeTx=" + isoTargeTx + ", countError=" + countError + ", countLine=" + countLine
+				+ ", timeLoad=" + timeLoad + "]";
+	}
+
 }

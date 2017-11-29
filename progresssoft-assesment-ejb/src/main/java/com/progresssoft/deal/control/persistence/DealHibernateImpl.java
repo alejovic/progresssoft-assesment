@@ -1,4 +1,4 @@
-package com.progresssoft.deal.control.dao.strategy;
+package com.progresssoft.deal.control.persistence;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,22 +9,40 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 import org.hibernate.jdbc.Work;
+import org.hibernate.service.ServiceRegistry;
 
 import com.progresssoft.deal.control.validator.FileDealValidatorException;
 import com.progresssoft.deal.control.validator.IFileDealValidator;
-import com.progresssoft.deal.entity.dto.DataFileInDTO;
 import com.progresssoft.deal.entity.dto.DataFileOutDTO;
 import com.progresssoft.deal.entity.dto.DealDTO;
 
 public class DealHibernateImpl extends BaseDealPersistence {
 
-	public DealHibernateImpl(EntityManagerFactory emf, DataFileInDTO dataFileInDTO, List<String> lines) {
-		super(emf, dataFileInDTO, lines);
+	private static final long serialVersionUID = 1L;
+	private static SessionFactory sessionFactory;
+
+	public DealHibernateImpl() {
+	}
+
+	public static SessionFactory getSessionFactory() {
+		if (sessionFactory == null) {
+			// loads configuration and mappings
+			Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
+			ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
+					.applySettings(configuration.getProperties()).build();
+
+			// builds a session factory from the service registry
+			sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+		}
+
+		return sessionFactory;
 	}
 
 	public DataFileOutDTO execute() {
@@ -41,8 +59,9 @@ public class DealHibernateImpl extends BaseDealPersistence {
 
 			int entityCount = lines.size();
 
-			em = getEmf().createEntityManager();
+			em = createEntityManager();
 			session = em.unwrap(Session.class);
+			// session = sessionFactory.getCurrentSession();
 
 			Transaction transaction = session.beginTransaction();
 

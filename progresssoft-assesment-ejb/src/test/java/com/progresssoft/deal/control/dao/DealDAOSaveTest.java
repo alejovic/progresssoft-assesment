@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.util.Calendar;
-import java.util.Random;
 
 import javax.persistence.EntityManagerFactory;
 

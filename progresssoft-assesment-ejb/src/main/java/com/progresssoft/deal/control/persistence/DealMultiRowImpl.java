@@ -1,24 +1,23 @@
-package com.progresssoft.deal.control.dao.strategy;
+package com.progresssoft.deal.control.persistence;
 
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 import com.progresssoft.deal.control.validator.FileDealValidatorException;
 import com.progresssoft.deal.control.validator.IFileDealValidator;
-import com.progresssoft.deal.entity.dto.DataFileInDTO;
 import com.progresssoft.deal.entity.dto.DataFileOutDTO;
 import com.progresssoft.deal.entity.dto.DealDTO;
 
 public class DealMultiRowImpl extends BaseDealPersistence {
 
-	public DealMultiRowImpl(EntityManagerFactory emf, DataFileInDTO dataFileInDTO, List<String> lines) {
-		super(emf, dataFileInDTO, lines);
+	private static final long serialVersionUID = 1L;
+
+	public DealMultiRowImpl() {
 	}
 
 	public DataFileOutDTO execute() {
@@ -35,7 +34,7 @@ public class DealMultiRowImpl extends BaseDealPersistence {
 			int entityCount = lines.size();
 
 			long startTime = System.nanoTime();
-			em = getEmf().createEntityManager();
+			em = createEntityManager();
 			transaction = em.getTransaction();
 			transaction.begin();
 			long endTime = System.nanoTime();
@@ -109,7 +108,7 @@ public class DealMultiRowImpl extends BaseDealPersistence {
 
 			startTime = System.nanoTime();
 			query.executeUpdate();
-			
+
 			try {
 				transaction.commit();
 			} catch (Exception e) {
@@ -124,7 +123,7 @@ public class DealMultiRowImpl extends BaseDealPersistence {
 					+ elapsedTimeInMillis + " ms");
 
 			return dataFileOutDTO;
-			
+
 		} finally {
 			LOG.debug("Thread -> " + Thread.currentThread());
 			if (em != null) {

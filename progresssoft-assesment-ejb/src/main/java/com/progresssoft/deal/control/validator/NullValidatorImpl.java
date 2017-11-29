@@ -1,11 +1,9 @@
-package com.progresssoft.deal.control.validator.impl;
+package com.progresssoft.deal.control.validator;
 
 import java.text.MessageFormat;
 
 import javax.persistence.EntityManagerFactory;
 
-import com.progresssoft.deal.control.validator.BaseFileDealValidator;
-import com.progresssoft.deal.control.validator.FileDealValidatorException;
 import com.progresssoft.deal.entity.dto.DealDTO;
 
 public class NullValidatorImpl extends BaseFileDealValidator {

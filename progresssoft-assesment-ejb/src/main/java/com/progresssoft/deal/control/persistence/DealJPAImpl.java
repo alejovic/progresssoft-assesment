@@ -1,4 +1,4 @@
-package com.progresssoft.deal.control.dao.strategy;
+package com.progresssoft.deal.control.persistence;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -6,14 +6,12 @@ import java.text.ParseException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import com.progresssoft.deal.control.validator.FileDealValidatorException;
 import com.progresssoft.deal.control.validator.IFileDealValidator;
-import com.progresssoft.deal.entity.dto.DataFileInDTO;
 import com.progresssoft.deal.entity.dto.DataFileOutDTO;
 import com.progresssoft.deal.entity.dto.DealDTO;
 import com.progresssoft.deal.entity.model.PsDealData;
@@ -22,8 +20,9 @@ import com.progresssoft.deal.entity.model.PsFile;
 
 public class DealJPAImpl extends BaseDealPersistence {
 
-	public DealJPAImpl(EntityManagerFactory emf, DataFileInDTO dataFileInDTO, List<String> lines) {
-		super(emf, dataFileInDTO, lines);
+	private static final long serialVersionUID = 1L;
+
+	public DealJPAImpl() {
 	}
 
 	@Override
@@ -41,7 +40,7 @@ public class DealJPAImpl extends BaseDealPersistence {
 			int entityCount = lines.size();
 			int batchSize = 1000;
 
-			em = getEmf().createEntityManager();
+			em = createEntityManager();
 			transaction = em.getTransaction();
 
 			transaction.begin();

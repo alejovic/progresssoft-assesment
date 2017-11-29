@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.persistence.EntityManagerFactory;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,11 +44,11 @@ public class DealFacadeBean implements DealFacade {
 		dataFileDTO.setValidators(lstValidator);
 	}
 
-	public DataFileOutDTO processDataFileDeal(DataFileInDTO dataFileDTO) throws BusinessException {
+	public DataFileOutDTO processDataFileDeal(DataFileInDTO dataFileInDTO) throws BusinessException {
 
 		DataFileOutDTO dataFileOutDTO = null;
 		try {
-			dataFileOutDTO = dealService.readFile(dataFileDTO);
+			dataFileOutDTO = dealService.readFile(dataFileInDTO);
 		} catch (DealServiceException e) {
 			LOG.error(e.getMessage());
 			throw new BusinessException("BusinessError[CODE101] - " + e.getMessage());

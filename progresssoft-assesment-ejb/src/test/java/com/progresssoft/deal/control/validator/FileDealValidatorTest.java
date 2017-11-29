@@ -22,14 +22,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.progresssoft.deal.boundary.service.reader.ReadFileTest;
-import com.progresssoft.deal.control.validator.impl.ISOCodeSourceValidatorImpl;
-import com.progresssoft.deal.control.validator.impl.ISOCodeTargetValidatorImpl;
-import com.progresssoft.deal.control.validator.impl.NullValidatorImpl;
-import com.progresssoft.deal.control.validator.impl.TypeFormatValidatorImpl;
-import com.progresssoft.deal.control.validator.impl.UniqueDealValidatorImpl;
 import com.progresssoft.deal.entity.dto.DealDTO;
-import com.progresssoft.deal.entity.dto.FileDTO;
 import com.progresssoft.deal.resource.BaseTest;
 
 public class FileDealValidatorTest extends BaseTest {
@@ -37,7 +30,6 @@ public class FileDealValidatorTest extends BaseTest {
 	private static final String PATH_CSV_TEST = "/DEAL_SOURCE_TEST_VALIDATOR.csv";
 	
 	private IFileDealValidator fileDealValidator;
-	private FileDTO fileDTO;
 	EntityManagerFactory emf;
 
 	Logger LOG = LoggerFactory.getLogger(this.getClass());
@@ -48,7 +40,7 @@ public class FileDealValidatorTest extends BaseTest {
 	public void setUp() {
 		super.setUp();
 		
-		URL url = ReadFileTest.class.getResource(PATH_CSV_TEST);
+		URL url = this.getClass().getResource(PATH_CSV_TEST);
 		
 		File file = null;
 		try {
